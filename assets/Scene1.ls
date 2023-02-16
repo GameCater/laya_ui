@@ -14,7 +14,7 @@
       "_$type": "Box",
       "name": "Box",
       "x": 675,
-      "y": 335,
+      "y": 97,
       "width": 570,
       "height": 410,
       "mouseEnabled": true,
@@ -62,6 +62,56 @@
           "labelSize": 20
         }
       ]
+    },
+    {
+      "_$id": "2iny7cag",
+      "_$var": true,
+      "_$type": "List",
+      "name": "List_card",
+      "x": 505,
+      "y": 702,
+      "width": 911,
+      "height": 200,
+      "mouseEnabled": true,
+      "repeatX": 1,
+      "repeatY": 1,
+      "spaceX": 20,
+      "scrollType": 1,
+      "itemRender": {
+        "_$type": "any",
+        "value": {
+          "_$ver": 1,
+          "_$id": "smd8ejwp",
+          "_$var": true,
+          "_$type": "Image",
+          "name": "Card",
+          "x": 85,
+          "y": 100,
+          "width": 100,
+          "height": 100,
+          "pivotX": 50,
+          "pivotY": 50,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "skin": "res://59c09b6e-2c7c-4b6f-9c8b-d4f5a9ed0955",
+          "_$comp": [
+            {
+              "_$type": "62596c95-8da3-4c2b-aaa1-e86b72841f41",
+              "enabled": false,
+              "scriptPath": "../src/FlipCard.ts",
+              "frontImg": {
+                "_$uuid": "59c09b6e-2c7c-4b6f-9c8b-d4f5a9ed0955",
+                "_$type": "Texture"
+              },
+              "backImg": {
+                "_$uuid": "59c09b6e-2c7c-4b6f-9c8b-d4f5a9ed0955",
+                "_$type": "Texture"
+              },
+              "duration": 220
+            }
+          ]
+        }
+      }
     }
   ]
 }

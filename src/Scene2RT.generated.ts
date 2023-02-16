@@ -7,5 +7,6 @@
 export class Scene2RTBase extends Laya.Scene {
     public TextArea: Laya.TextArea;
     public Button_toggle: Laya.Button;
+    public List_card: Laya.List;
 }
 

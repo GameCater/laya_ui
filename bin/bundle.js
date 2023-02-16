@@ -103,6 +103,21 @@ function __$decorate(assetId, codePath) {
     }
     onAwake() {
       this.Button_toggle.on(Laya.Event.CLICK, this, this.onClick);
+      this.List_card.array = [
+        "resources/card.png",
+        "resources/card.png",
+        "resources/card.png"
+      ];
+      this.List_card.repeatX = 3;
+      this.List_card.repeatY = 1;
+      this.List_card.renderHandler = Laya.Handler.create(this, (cell, index) => {
+        let flip = cell.getComponent(Laya.Script);
+        let duration = flip.duration;
+        Laya.timer.once(duration * index, this, () => {
+          flip.enabled = true;
+          cell.event("awake");
+        });
+      }, null, false);
     }
     onClick() {
       this.closed = !this.closed;
@@ -202,5 +217,62 @@ function __$decorate(assetId, codePath) {
   Scene3RT = __decorate3([
     regClass3()
   ], Scene3RT);
+
+  // E:/projects/laya3/ui_test/src/FlipCard.ts
+  var __decorate4 = __$decorate("62596c95-8da3-4c2b-aaa1-e86b72841f41", "../src/FlipCard.ts");
+  var _a;
+  var _b;
+  var { regClass: regClass4, property: property4 } = Laya;
+  var FlipCard = /* @__PURE__ */ __name(class FlipCard2 extends Laya.Script {
+    constructor() {
+      super(...arguments);
+      this.frontImg = null;
+      this.backImg = null;
+      this.duration = 200;
+      this.isFront = true;
+      this.clicked = false;
+    }
+    onAwake() {
+      this.card = this.owner;
+      this.card.skin = this.frontImg.url;
+      this.card.on("awake", this, this.handleClick);
+    }
+    handleClick() {
+      if (this.clicked)
+        return;
+      this.clicked = true;
+      this.isFront = !this.isFront;
+      if (this.isFront) {
+        Laya.Tween.to(this.card, { scaleX: 0 }, this.duration, Laya.Ease.linearIn, Laya.Handler.create(this, () => {
+          this.card.skin = this.frontImg.url;
+          Laya.Tween.to(this.card, { scaleX: 1 }, this.duration, Laya.Ease.linearOut, Laya.Handler.create(this, () => {
+            this.clicked = false;
+          }));
+        }));
+      } else {
+        Laya.Tween.to(this.card, { scaleX: 0 }, this.duration, Laya.Ease.linearIn, Laya.Handler.create(this, () => {
+          this.card.skin = this.backImg.url;
+          Laya.Tween.to(this.card, { scaleX: 1 }, this.duration, Laya.Ease.linearOut, Laya.Handler.create(this, () => {
+            this.clicked = false;
+          }));
+        }));
+      }
+    }
+  }, "FlipCard");
+  __decorate4([
+    property4(),
+    __metadata("design:type", typeof (_a = typeof Laya !== "undefined" && Laya.Texture) === "function" ? _a : Object)
+  ], FlipCard.prototype, "frontImg", void 0);
+  __decorate4([
+    property4(),
+    __metadata("design:type", typeof (_b = typeof Laya !== "undefined" && Laya.Texture) === "function" ? _b : Object)
+  ], FlipCard.prototype, "backImg", void 0);
+  __decorate4([
+    property4(),
+    __metadata("design:type", Number)
+  ], FlipCard.prototype, "duration", void 0);
+  FlipCard = __decorate4([
+    regClass4()
+  ], FlipCard);
 })();
 //# sourceMappingURL=bundle.js.map
