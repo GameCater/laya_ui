@@ -1,0 +1,450 @@
+{
+  "meta": {
+    "prefix": "resources/equipment/",
+    "image": "equipment.png"
+  },
+  "frames": {
+    "A_Armor05.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 0,
+        "w": 33,
+        "h": 33
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "A_Armour03.png": {
+      "frame": {
+        "idx": 0,
+        "x": 35,
+        "y": 0,
+        "w": 33,
+        "h": 33
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "A_Armour02.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 35,
+        "w": 33,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    "C_Elm04.png": {
+      "frame": {
+        "idx": 0,
+        "x": 35,
+        "y": 35,
+        "w": 31,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    "C_Hat01.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 69,
+        "w": 34,
+        "h": 29
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    "C_Hat02.png": {
+      "frame": {
+        "idx": 0,
+        "x": 36,
+        "y": 69,
+        "w": 34,
+        "h": 29
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    "A_Armor04.png": {
+      "frame": {
+        "idx": 0,
+        "x": 68,
+        "y": 35,
+        "w": 31,
+        "h": 31
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    "Ac_Gloves06.png": {
+      "frame": {
+        "idx": 0,
+        "x": 70,
+        "y": 0,
+        "w": 30,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 1
+      }
+    },
+    "Ac_Gloves01.png": {
+      "frame": {
+        "idx": 0,
+        "x": 72,
+        "y": 68,
+        "w": 30,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "Ac_Gloves02.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 100,
+        "w": 30,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "Ac_Gloves03.png": {
+      "frame": {
+        "idx": 0,
+        "x": 32,
+        "y": 100,
+        "w": 30,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "Ac_Gloves04.png": {
+      "frame": {
+        "idx": 0,
+        "x": 64,
+        "y": 100,
+        "w": 30,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "Ac_Gloves05.png": {
+      "frame": {
+        "idx": 0,
+        "x": 101,
+        "y": 34,
+        "w": 30,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "Ac_Gloves07.png": {
+      "frame": {
+        "idx": 0,
+        "x": 102,
+        "y": 0,
+        "w": 30,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "A_Armour01.png": {
+      "frame": {
+        "idx": 0,
+        "x": 96,
+        "y": 100,
+        "w": 30,
+        "h": 29
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    "A_Shoes05.png": {
+      "frame": {
+        "idx": 0,
+        "x": 96,
+        "y": 131,
+        "w": 33,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    "C_Elm03.png": {
+      "frame": {
+        "idx": 0,
+        "x": 128,
+        "y": 66,
+        "w": 26,
+        "h": 33
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 0
+      }
+    },
+    "A_Shoes01.png": {
+      "frame": {
+        "idx": 0,
+        "x": 128,
+        "y": 101,
+        "w": 32,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "A_Shoes02.png": {
+      "frame": {
+        "idx": 0,
+        "x": 131,
+        "y": 129,
+        "w": 32,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "A_Shoes03.png": {
+      "frame": {
+        "idx": 0,
+        "x": 0,
+        "y": 132,
+        "w": 32,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "A_Shoes04.png": {
+      "frame": {
+        "idx": 0,
+        "x": 34,
+        "y": 132,
+        "w": 32,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "A_Shoes06.png": {
+      "frame": {
+        "idx": 0,
+        "x": 131,
+        "y": 157,
+        "w": 32,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "A_Shoes07.png": {
+      "frame": {
+        "idx": 0,
+        "x": 68,
+        "y": 159,
+        "w": 32,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    "C_Hat03.png": {
+      "frame": {
+        "idx": 0,
+        "x": 133,
+        "y": 32,
+        "w": 30,
+        "h": 25
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 4
+      }
+    },
+    "C_Elm02.png": {
+      "frame": {
+        "idx": 0,
+        "x": 134,
+        "y": 0,
+        "w": 28,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    "C_Elm01.png": {
+      "frame": {
+        "idx": 0,
+        "x": 102,
+        "y": 159,
+        "w": 27,
+        "h": 22
+      },
+      "sourceSize": {
+        "w": 34,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 6
+      }
+    }
+  }
+}
