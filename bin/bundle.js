@@ -400,5 +400,100 @@ function __$decorate(assetId, codePath) {
   Scene4RT = __decorate5([
     regClass5()
   ], Scene4RT);
+
+  // E:/projects/laya3/ui_test/src/Scene5RT.generated.ts
+  var Scene5RTBase = class extends Laya.Scene {
+  };
+  __name(Scene5RTBase, "Scene5RTBase");
+
+  // E:/projects/laya3/ui_test/src/Scene5RT.ts
+  var __decorate6 = __$decorate("11932c2b-ca8c-4550-8fab-7b9ed0251bc7", "../src/Scene5RT.ts");
+  var { regClass: regClass6, property: property6 } = Laya;
+  var Scene5RT = /* @__PURE__ */ __name(class Scene5RT2 extends Scene5RTBase {
+    constructor() {
+      super();
+      this.blinkDelay = 500;
+      this.wordGap = 38;
+      this.tip = "\u8FD9\u662F\u4E00\u6BB5\u9ED8\u8BA4\u7684\u63D0\u793A\u6587\u5B57\uFF0C\u7528\u6765\u7ED9\u7528\u6237\u6307\u793A\u67D0\u5904\u6309\u94AE\u7B49\u56FE\u5F62\u5143\u7D20\u7684\u4F5C\u7528";
+      this.labels = [];
+      this.hovered = false;
+    }
+    onAwake() {
+      this.blinkAni(this.Label_blink);
+      let len = this.tip.length;
+      for (let i = 0; i < len; i++) {
+        let label = this.createLabel(this.tip[i], i * this.wordGap);
+        this.labels.push(label);
+      }
+      this.Label_blink.left = 0;
+      this.Image_bg.width = this.Label_blink.width + 50;
+      this.Button_test.on(Laya.Event.MOUSE_MOVE, this, () => {
+        if (this.hovered)
+          return;
+        this.hovered = true;
+        this.Image_bg.pos(this.Button_test.width + this.Button_test.x, this.Button_test.y - this.Image_bg.height);
+        this.Image_bg.visible = true;
+        this.delayShow();
+      });
+      this.Button_test.on(Laya.Event.MOUSE_OUT, this, () => {
+        this.recover();
+        this.hovered = false;
+        this.Image_bg.visible = false;
+      });
+    }
+    onClick() {
+      this.delayShow();
+    }
+    // 每个提示文字都创建一个label
+    createLabel(txt, x) {
+      let label = new Laya.Label(txt);
+      label.top = label.bottom = 0;
+      label.color = "#000";
+      label.fontSize = 36;
+      label.valign = "middle";
+      label.left = x;
+      label.alpha = 0;
+      this.Box_words.addChild(label);
+      return label;
+    }
+    // 复原
+    recover() {
+      this.labels.forEach((l) => {
+        Laya.Tween.clearAll(l);
+        l.alpha = 0;
+      });
+      this.Label_blink.left = 0;
+      this.Image_bg.width = this.Label_blink.width + 50;
+      for (let i = 0, len = this.tip.length; i < len; i++) {
+        Laya.timer.clear(this, this.delayShowCallback);
+      }
+    }
+    // 提示文字延迟显示
+    delayShow() {
+      let len = this.labels.length;
+      let showDelay = 60;
+      for (let i = 0; i < len; i++) {
+        Laya.timer.once(showDelay * i, this, this.delayShowCallback, [i], false);
+      }
+    }
+    delayShowCallback(i) {
+      Laya.Tween.to(this.labels[i], { alpha: 1 }, 10, Laya.Ease.linearIn, Laya.Handler.create(this, () => {
+        this.Label_blink.left += this.wordGap;
+        this.Image_bg.width += this.wordGap;
+      }, null, false));
+    }
+    // 闪烁的竖线
+    blinkAni(target) {
+      let isShow = 0;
+      Laya.timer.loop(this.blinkDelay, this, () => {
+        isShow = isShow ^ 1;
+        Laya.Tween.to(target, { alpha: isShow }, this.blinkDelay, Laya.Ease.linearIn);
+      });
+    }
+  }, "Scene5RT");
+  Scene5RT = __decorate6([
+    regClass6(),
+    __metadata("design:paramtypes", [])
+  ], Scene5RT);
 })();
 //# sourceMappingURL=bundle.js.map
