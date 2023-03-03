@@ -495,5 +495,100 @@ function __$decorate(assetId, codePath) {
     regClass6(),
     __metadata("design:paramtypes", [])
   ], Scene5RT);
+
+  // E:/projects/laya3/ui_test/src/Scene6RT.generated.ts
+  var Scene6RTBase = class extends Laya.Scene {
+  };
+  __name(Scene6RTBase, "Scene6RTBase");
+
+  // E:/projects/laya3/ui_test/src/Scene6RT.ts
+  var __decorate7 = __$decorate("e7b7ddee-f1cb-478c-a8e9-c867e94a1ff3", "../src/Scene6RT.ts");
+  var { regClass: regClass7, property: property7 } = Laya;
+  var Scene6RT = /* @__PURE__ */ __name(class Scene6RT2 extends Scene6RTBase {
+    onAwake() {
+      this.List_menu.itemRender = MenuItem;
+      let data = [
+        { name: "Start Game", pointer: true },
+        { name: "Top Ranking", pointer: false },
+        { name: "Setting", pointer: false },
+        { name: "Exit Game", pointer: false }
+      ];
+      this.List_menu.array = data;
+      this.List_menu.renderHandler = Laya.Handler.create(this, (cell, idx) => {
+        cell.setLabelText(cell.dataSource.name);
+        cell.setPointerVisible(cell.dataSource.pointer);
+        if (cell.dataSource.pointer) {
+          cell.executeAni();
+        }
+      }, null, false);
+      this.List_menu.selectHandler = Laya.Handler.create(this, (idx) => {
+        let cells = this.List_menu.cells, len = cells.length;
+        cells.forEach((cell) => {
+          cell.setPointerVisible(false);
+          cell.recover();
+        });
+        let curCell = cells[idx];
+        curCell.setPointerVisible(true);
+        curCell.executeAni();
+      }, null, false);
+    }
+  }, "Scene6RT");
+  Scene6RT = __decorate7([
+    regClass7()
+  ], Scene6RT);
+  var MenuItem = class extends Laya.Box {
+    get dataSource() {
+      return this._data;
+    }
+    set dataSource(value) {
+      this._data = value;
+    }
+    constructor() {
+      super();
+      this._data = null;
+      this.width = 500;
+      this.height = 120;
+      this.pointer = new Laya.Image("resources/equipment/Ac_Gloves04.png");
+      let pointer = this.pointer;
+      this.addChild(pointer);
+      pointer.width = 50;
+      pointer.height = 50;
+      pointer.left = 0;
+      pointer.top = 35;
+      pointer.visible = true;
+      this.label = new Laya.Label();
+      let label = this.label;
+      this.addChild(label);
+      label.width = 398;
+      label.height = 120;
+      label.left = 70;
+      label.fontSize = 50;
+      label.align = "left";
+      label.valign = "middle";
+      label.color = "#fff";
+    }
+    setLabelText(text) {
+      this.label.text = text;
+    }
+    setPointerVisible(visible) {
+      this.dataSource.pointer = visible;
+      this.pointer.visible = visible;
+    }
+    executeAni() {
+      this.label.stroke = 10;
+      this.label.strokeColor = "#aaa";
+      Laya.timer.loop(1e3, this, () => {
+        Laya.Tween.to(this.label, { scaleX: 1.2, scaleY: 1.2 }, 500, Laya.Ease.linearIn, Laya.Handler.create(this, () => {
+          Laya.Tween.to(this.label, { scaleX: 1, scaleY: 1 }, 500, Laya.Ease.linearIn);
+        }));
+      });
+    }
+    recover() {
+      this.label.stroke = 0;
+      Laya.timer.clearAll(this);
+      Laya.Tween.clearAll(this.label);
+    }
+  };
+  __name(MenuItem, "MenuItem");
 })();
 //# sourceMappingURL=bundle.js.map
