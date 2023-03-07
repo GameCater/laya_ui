@@ -1,0 +1,67 @@
+{
+  "_$ver": 1,
+  "_$id": "trjb4dv8",
+  "_$type": "View",
+  "name": "View",
+  "x": 1316,
+  "y": 18,
+  "width": 604,
+  "height": 143,
+  "anchorX": 0,
+  "anchorY": 0,
+  "right": 0,
+  "_$child": [
+    {
+      "_$id": "bccqhgnm",
+      "_$type": "Box",
+      "name": "Box_Head",
+      "x": 504,
+      "y": 20,
+      "width": 80,
+      "height": 80,
+      "anchorX": 0,
+      "anchorY": 0,
+      "right": 20,
+      "top": 20,
+      "bgColor": "rgba(181, 181, 181, 1)",
+      "_$child": [
+        {
+          "_$id": "365lpkn7",
+          "_$var": true,
+          "_$type": "Image",
+          "name": "Image_Avatar",
+          "x": 10,
+          "y": 10,
+          "width": 60,
+          "height": 60,
+          "anchorX": 0,
+          "anchorY": 0,
+          "centerX": 0,
+          "centerY": 0,
+          "skin": "res://335a753d-7346-476d-94a7-f205484efbe9"
+        }
+      ]
+    },
+    {
+      "_$id": "9z03bkrd",
+      "_$var": true,
+      "_$type": "Label",
+      "name": "Label_Message",
+      "x": 40,
+      "y": 20,
+      "width": 450,
+      "height": 102,
+      "anchorX": 0,
+      "anchorY": 0,
+      "right": 114,
+      "top": 20,
+      "text": "这是一段发送的消息，虽然消息很短，但足够让人震惊",
+      "fontSize": 32,
+      "color": "rgba(0, 0, 0, 1)",
+      "bgColor": "rgba(241, 252, 255, 1)",
+      "wordWrap": true,
+      "leading": 12,
+      "padding": "12,0,12,12"
+    }
+  ]
+}

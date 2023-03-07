@@ -590,5 +590,56 @@ function __$decorate(assetId, codePath) {
     }
   };
   __name(MenuItem, "MenuItem");
+
+  // E:/projects/laya3/ui_test/src/Scene7RT.generated.ts
+  var Scene7RTBase = class extends Laya.Scene {
+  };
+  __name(Scene7RTBase, "Scene7RTBase");
+
+  // E:/projects/laya3/ui_test/src/Scene7RT.ts
+  var __decorate8 = __$decorate("27acb450-db78-4dea-b13a-3f204f81546a", "../src/Scene7RT.ts");
+  var { regClass: regClass8, property: property8 } = Laya;
+  var Scene7RT = /* @__PURE__ */ __name(class Scene7RT2 extends Scene7RTBase {
+    constructor() {
+      super(...arguments);
+      this.MESSAGE_SPACE = 10;
+    }
+    onAwake() {
+      Laya.loader.load("prefabs/MessageVisual.lh").then((messagePrefab) => {
+        this.messagePrefab = messagePrefab;
+      });
+      this.Panel_Content.vScrollBarSkin = "";
+      this.Button_Send.on(Laya.Event.CLICK, this, this.sendMessage);
+    }
+    sendMessage() {
+      let message = {
+        body: this.TextInput_Message.text,
+        sender: { name: "alo", avatar: "C_Elm01" }
+      };
+      this.generateMessage(message);
+      this.TextInput_Message.text = "";
+      this.Panel_Content.scrollTo(0, this.getContentHeight());
+    }
+    getContentHeight() {
+      let height = 0;
+      for (let i = 0, len = this.Panel_Content.numChildren; i < len; i++) {
+        let messageVisual = this.Panel_Content.getChildAt(i);
+        height += messageVisual.height + this.MESSAGE_SPACE;
+      }
+      return height;
+    }
+    generateMessage(message) {
+      let messageVisual = this.messagePrefab.create();
+      let label = messageVisual.getChildByName("Label_Message");
+      let head = messageVisual.getChildByName("Box_Head").getChildByName("Image_Avatar");
+      label.text = message.body;
+      head.skin = `resources/equipment/${message.sender.avatar}.png`;
+      messageVisual.y = this.getContentHeight();
+      this.Panel_Content.addChild(messageVisual);
+    }
+  }, "Scene7RT");
+  Scene7RT = __decorate8([
+    regClass8()
+  ], Scene7RT);
 })();
 //# sourceMappingURL=bundle.js.map
