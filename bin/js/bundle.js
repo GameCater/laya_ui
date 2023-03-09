@@ -641,5 +641,52 @@ function __$decorate(assetId, codePath) {
   Scene7RT = __decorate8([
     regClass8()
   ], Scene7RT);
+
+  // E:/projects/laya3/ui_test/src/Scene8RT.generated.ts
+  var Scene8RTBase = class extends Laya.Scene {
+  };
+  __name(Scene8RTBase, "Scene8RTBase");
+
+  // E:/projects/laya3/ui_test/src/Scene8RT.ts
+  var __decorate9 = __$decorate("29dc77df-b2e1-4c32-9b83-74f218849249", "../src/Scene8RT.ts");
+  var Point = Laya.Point;
+  var { regClass: regClass9, property: property9 } = Laya;
+  var Scene8RT = /* @__PURE__ */ __name(class Scene8RT2 extends Scene8RTBase {
+    constructor() {
+      super(...arguments);
+      this.maskPressed = false;
+    }
+    onAwake() {
+      this.Sprite_Mask.on(Laya.Event.MOUSE_DOWN, this, this.onMaskPressed);
+      this.Sprite_Mask.on(Laya.Event.MOUSE_UP, this, this.onMaskLoosen);
+      Laya.stage.on(Laya.Event.MOUSE_MOVE, this, this.onMaskMove);
+    }
+    onMaskPressed() {
+      let globalPosition = Laya.stage.localToGlobal(new Point(this.Sprite_Mask.x, this.Sprite_Mask.y));
+      this.maskLastX = globalPosition.x;
+      this.maskLastY = globalPosition.y;
+      this.maskPressed = !this.maskPressed;
+      if (this.maskPressed) {
+        Laya.Tween.to(this.Sprite_Mask, { scaleX: 1.5, scaleY: 1.5 }, 100, Laya.Ease.circIn);
+      }
+    }
+    onMaskLoosen() {
+      this.maskPressed = !this.maskPressed;
+      if (!this.maskPressed) {
+        Laya.Tween.to(this.Sprite_Mask, { scaleX: 1, scaleY: 1 }, 100, Laya.Ease.circOut);
+      }
+    }
+    onMaskMove(e) {
+      if (this.maskPressed) {
+        let curPosition = new Point(Laya.stage.mouseX, Laya.stage.mouseY);
+        let curLocalPosition = this.Sprite.globalToLocal(curPosition);
+        this.Sprite_Mask.x = curLocalPosition.x;
+        this.Sprite_Mask.y = curLocalPosition.y;
+      }
+    }
+  }, "Scene8RT");
+  Scene8RT = __decorate9([
+    regClass9()
+  ], Scene8RT);
 })();
 //# sourceMappingURL=bundle.js.map
