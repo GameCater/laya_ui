@@ -688,5 +688,152 @@ function __$decorate(assetId, codePath) {
   Scene8RT = __decorate9([
     regClass9()
   ], Scene8RT);
+
+  // E:/projects/laya3/ui_test/src/Scene9RT.generated.ts
+  var Scene9RTBase = class extends Laya.Scene {
+  };
+  __name(Scene9RTBase, "Scene9RTBase");
+
+  // E:/projects/laya3/ui_test/src/Scene9RT.ts
+  var __decorate10 = __$decorate("cc5ca5ec-2acd-4332-8ee3-9480f77c675a", "../src/Scene9RT.ts");
+  var { regClass: regClass10, property: property10 } = Laya;
+  var Scene9RT = /* @__PURE__ */ __name(class Scene9RT2 extends Scene9RTBase {
+    constructor() {
+      super(...arguments);
+      this.bagItems = [
+        { name: "Ac_Gloves01" },
+        { name: "Ac_Gloves02" }
+      ];
+      this.initialArray = [];
+    }
+    onAwake() {
+      this.craftPanel = this.List_Craft.getComponent(Laya.Script);
+      this.List_Bag.array = this.bagItems;
+      this.List_Bag.renderHandler = Laya.Handler.create(this, (cell, idx) => {
+        let spriteItem = cell.getChildByName("Sprite_Item");
+        spriteItem.loadImage(`resources/equipment/${cell.dataSource.name}.png`);
+        cell.on(Laya.Event.MOUSE_DOWN, this, this.onCellPressed, [cell.dataSource]);
+      }, null, false);
+      for (let i = 0; i <= 8; i++) {
+        this.initialArray.push({ objectName: "", location: -1 });
+      }
+      this.List_Craft.array = [...this.initialArray];
+      this.List_Craft.renderHandler = Laya.Handler.create(this, (cell, idx) => {
+        let spriteItem = cell.getChildByName("Sprite_Item");
+        if (cell.dataSource.objectName) {
+          spriteItem.loadImage(`resources/equipment/${cell.dataSource.objectName}.png`);
+        } else {
+          spriteItem.texture = null;
+        }
+      }, null, false);
+      this.List_Craft.mouseHandler = Laya.Handler.create(this, (e, idx) => {
+        if (e.type === Laya.Event.MOUSE_UP && this.selectedItemCopy) {
+          let data = {
+            objectName: this.selectedItemCopy.dataSource.name,
+            location: idx
+          };
+          this.List_Craft.setItem(idx, data);
+          if (this.canComposite()) {
+            this.composite();
+          }
+        }
+      }, null, false);
+      this.Button_Clear.on(Laya.Event.CLICK, this, this.clearCraftList);
+    }
+    clearCraftList() {
+      for (let i = 0, len = this.List_Craft.length; i < len; i++) {
+        this.List_Craft.setItem(i, this.initialArray[0]);
+      }
+    }
+    // 测试用
+    logCellData(list) {
+      list.cells.forEach((cell) => {
+        console.log(cell.dataSource);
+      });
+    }
+    composite() {
+      this.clearCraftList();
+      this.List_Craft.setItem(4, { objectName: this.composition.objectName, location: -1 });
+    }
+    canComposite() {
+      let validNums = 0;
+      this.List_Craft.cells.forEach((cell) => {
+        if (cell.dataSource.objectName) {
+          validNums += 1;
+        }
+      });
+      let canComposite = false;
+      let rules = this.craftPanel.rules;
+      rules.forEach((rule) => {
+        if (rule.input.length === validNums) {
+          canComposite = true;
+          rule.input.forEach((inputObj) => {
+            let targetCell = this.List_Craft.getCell(inputObj.location);
+            if (targetCell.dataSource.objectName !== inputObj.objectName) {
+              canComposite = false;
+            }
+          });
+          if (canComposite) {
+            this.composition = rule.output;
+          }
+        }
+      });
+      return canComposite;
+    }
+    onCellPressed(cellData) {
+      let selectedItem = new Laya.Image();
+      selectedItem.size(120, 120);
+      selectedItem.loadImage(`resources/equipment/${cellData.name}.png`);
+      selectedItem.pos(Laya.stage.mouseX, Laya.stage.mouseY);
+      Laya.stage.addChild(selectedItem);
+      this.selectedItemCopy = selectedItem;
+      selectedItem.dataSource = cellData;
+      Laya.stage.on(Laya.Event.MOUSE_MOVE, this, this.onSelectedItemCopyMove, [selectedItem]);
+      Laya.stage.on(Laya.Event.MOUSE_UP, this, this.onSelectedItemCopyLoosen, [selectedItem]);
+    }
+    onSelectedItemCopyMove(target) {
+      target.pos(Laya.stage.mouseX, Laya.stage.mouseY);
+    }
+    onSelectedItemCopyLoosen(target) {
+      this.selectedItemCopy = null;
+      target.removeSelf();
+      target.destroy();
+    }
+  }, "Scene9RT");
+  Scene9RT = __decorate10([
+    regClass10()
+  ], Scene9RT);
+
+  // E:/projects/laya3/ui_test/src/CraftPanel.ts
+  var __decorate11 = __$decorate("843f8061-a597-462e-8987-9cc586fbd280", "../src/CraftPanel.ts");
+  var { regClass: regClass11, property: property11 } = Laya;
+  var CraftPanel = /* @__PURE__ */ __name(class CraftPanel2 extends Laya.Script {
+    constructor() {
+      super(...arguments);
+      this.compositionRules = [
+        {
+          input: [
+            { objectName: "Ac_Gloves01", location: 1 },
+            { objectName: "Ac_Gloves02", location: 3 }
+          ],
+          output: { objectName: "Ac_Gloves03", prefabUrl: "prefabs/GreenHat.lh" }
+        },
+        {
+          input: [
+            { objectName: "Ac_Gloves01", location: 0 },
+            { objectName: "Ac_Gloves01", location: 1 },
+            { objectName: "Ac_Gloves01", location: 2 }
+          ],
+          output: { objectName: "Ac_Gloves04", prefabUrl: "prefabs/GreenHat.lh" }
+        }
+      ];
+    }
+    get rules() {
+      return this.compositionRules;
+    }
+  }, "CraftPanel");
+  CraftPanel = __decorate11([
+    regClass11()
+  ], CraftPanel);
 })();
 //# sourceMappingURL=bundle.js.map
